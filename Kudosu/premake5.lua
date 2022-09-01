@@ -7,6 +7,9 @@ project "Kudosu"
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "kdspch.hpp"
+	pchsource "Kudosu/src/kdspch.cpp"
+
 	files
 	{
 		"src/**.h",
