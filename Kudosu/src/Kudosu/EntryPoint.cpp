@@ -15,16 +15,28 @@ int main(int argc, char** argv)
 	//	//Do something with argv[i]
 	//}
 
+	//const std::string exampleInput = R"(
+	//	530070000
+	//	600195000
+	//	098000060
+	//	800060003
+	//	400803001
+	//	700020006
+	//	060000280
+	//	000419005
+	//	000080079
+	//)";
+	
 	const std::string exampleInput = R"(
-		530070000
-		600195000
-		098000060
-		800060003
-		400803001
-		700020006
-		060000280
-		000419005
-		000080079
+		030000500
+		807050000
+		500807430
+		096200000
+		000601000
+		000009780
+		023104007
+		000080901
+		009000060
 	)";
 
 	std::string result;
@@ -35,12 +47,11 @@ int main(int argc, char** argv)
 	}
 
 	Kudosu::Sudoku sudoku(result);
-	std::cout << "Input Sudoku was:\n\n";
+	std::cout << "Input Sudoku was:\n";
 	sudoku.Print();
 	std::cout << '\n';
 
 	std::cout << (sudoku.Solve() ? "Sudoku was solved!\n" : "Sudoku was unsolvable!\n");
-	std::cout << '\n';
 
 	sudoku.Print();
 

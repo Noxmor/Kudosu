@@ -10,7 +10,7 @@ namespace Kudosu {
 		Sudoku(const std::string& data);
 		~Sudoku() = default;
 
-		bool Solve(const uint8_t startIndex = 0);
+		bool Solve(uint8_t i = 0);
 
 		void Print() const;
 		
