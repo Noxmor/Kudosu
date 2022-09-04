@@ -6,14 +6,14 @@ int main(int argc, char** argv)
 {
 	//if (argc < 2)
 	//{
-	//	std::cout << "[Kudosu]: No arguments specified!\n";
+	//	std::cout << "No arguments specified!\n";
 	//	return 1;
 	//}
-	//
-	//for (size_t i = 1; i < argc; i++)
-	//{
-	//	//Do something with argv[i]
-	//}
+	
+	for (size_t i = 1; i < argc; i++)
+	{
+		//Do something with argv[i]
+	}
 
 	//const std::string exampleInput = R"(
 	//	530070000
@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 	}
 
 	Kudosu::Sudoku sudoku(result);
-	std::cout << "Input Sudoku was:\n";
+	std::cout << "Input Sudoku:\n";
 	sudoku.Print();
 	std::cout << '\n';
 

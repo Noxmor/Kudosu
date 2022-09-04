@@ -20,6 +20,8 @@ namespace Kudosu {
 		void SetDigit(const uint8_t x, const uint8_t y, const uint8_t value);
 		void ClearDigit(const uint8_t x, const uint8_t y);
 
+		void ClearData();
+
 	private:
 		uint8_t m_Data[SUDOKU_SIZE];
 

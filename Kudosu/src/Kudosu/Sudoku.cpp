@@ -8,7 +8,7 @@ namespace Kudosu {
 	{
 		if (data.size() != SUDOKU_SIZE)
 		{
-			std::memset(m_Data, 0, SUDOKU_SIZE * sizeof(uint8_t));
+			ClearData();
 			std::cout << "Invalid input size! Size was: " << data.size() << ", but expected " << SUDOKU_SIZE << "!\n";
 			return;
 		}
@@ -21,6 +21,14 @@ namespace Kudosu {
 
 			if (!digit)
 				continue;
+
+			if (!IsValidPlacement(i % GRID_SIZE, i / GRID_SIZE, digit))
+			{
+				ClearData();
+				std::cout << "Input sudoku has invalid digits!\n";
+				std::cout << "Failed to initialize sudoku!\n";
+				return;
+			}
 
 			m_RowBitmap[i / GRID_SIZE] |= BIT(digit - 1);
 			m_ColumnBitmap[i % GRID_SIZE] |= BIT(digit - 1);
@@ -103,6 +111,14 @@ namespace Kudosu {
 		m_RowBitmap[y] &= ~BIT(digit - 1);
 		m_ColumnBitmap[x] &= ~BIT(digit - 1);
 		m_BoxBitmap[(y / 3) * 3 + (x / 3)] &= ~BIT(digit - 1);
+	}
+
+	void Sudoku::ClearData()
+	{
+		std::memset(m_Data, 0, SUDOKU_SIZE * sizeof(uint8_t));
+		std::memset(m_RowBitmap, 0, GRID_SIZE * sizeof(uint16_t));
+		std::memset(m_ColumnBitmap, 0, GRID_SIZE * sizeof(uint16_t));
+		std::memset(m_BoxBitmap, 0, GRID_SIZE * sizeof(uint16_t));
 	}
 
 }
